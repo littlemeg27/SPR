@@ -119,21 +119,45 @@ void Ranges()
 //Calls Program 1-5
 void ArrayOfCharName()
 {
-    
     char nameArray[32];
-
-    for (int i = 0; i < 1; i++)
+    string randomQuotes[4] = {"In three words I can sum up everything I've learned about life: it goes on.",
+                              "To live is the rarest thing in the world. Most people exist, that is all.",
+                              "Good friends, good books, and a sleepy conscience: this is the ideal life.",
+                              "Sometimes the questions are complicated and the answers are simple."};
+    
+        for (int i = 0; i < 1; i++)
         {
             cout << "Please enter your full name \n";
-            cin.getline >> nameArray[i];
+            cin.getline(nameArray,32);
         }
     
+        for (int j = 0; j < 32; j++)
+        {
+            for (int k = 0; k < 4; k++)
+            {
+                cout << nameArray[j] << randomQuotes[k];
+            }
+        }
 }
 
 //Calls Program 1-6
 void AgeCheck()
 {
+    int ageCheck1 = 13;
+    int ageCheck2 = 21;
+    int randomAge = 0;
     
+    cout << "Enter a random age!";
+    cin >> randomAge;
+
+    if(ageCheck1 >= randomAge)
+    {
+        cout << "Mom said your not allowed!";
+    }
+    else if (ageCheck2 <= randomAge)
+    {
+        cout << "It's Ok. You can go!";
+    }
 }
 
 //Calls Program 1-7
