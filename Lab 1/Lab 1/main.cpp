@@ -35,7 +35,6 @@ int main(int argc, const char * argv[])
     GameLevels();
     
     return 0;
-    
 }
 
 //Calls Program 1-1
@@ -44,7 +43,7 @@ void ArrayOfChars()
     int i = 0;
     int j = 0;
     
-    for (int k = 0; k < 1; k++)
+    for (int k = 0; k < 2; k++)
     {
         int userAge [j];
         char userInitials[i];
@@ -53,8 +52,8 @@ void ArrayOfChars()
             {
                 cout << "Please enter your Initials \n";
                 cin >> userInitials[i];
+                cin.ignore(1000);
             }
-        
             if(cin.fail())
             {
                 cin.clear();
@@ -64,11 +63,11 @@ void ArrayOfChars()
             {
                 break;
             }
-        
             for (j = 0; j < 1; j++)
             {
                 cout << "Please enter your Age \n";
                 cin >> userAge[j];
+                cin.ignore(1000);
             }
         
         int newUserAge =  userAge[j] * 365;
@@ -86,6 +85,7 @@ void ArrayOfInts()
         {
             cout << "Please enter a Random Number \n";
             cin >> randomNumbers[i];
+            cin.ignore(1000);
         }
     cout << randomNumbers[i] << "Your Random Numbers are: ";
 }
@@ -102,6 +102,7 @@ void Equations()
         {
             cout << "Please enter a Random Number \n";
             cin >> equationArray[i];
+            cin.ignore(1000);
         }
     equationOne = equationArray[0] + 1 * equationArray[1] + 2 - equationArray[2];
     equationTwo = (equationArray[0] + 1) * (equationArray[1] + 2) - equationArray[2];
@@ -129,6 +130,7 @@ void ArrayOfCharName()
         {
             cout << "Please enter your full name \n";
             cin.getline(nameArray,32);
+            cin.ignore(1000);
         }
     
         for (int j = 0; j < 32; j++)
@@ -149,6 +151,7 @@ void AgeCheck()
     
     cout << "Enter a random age!";
     cin >> randomAge;
+    cin.ignore(1000);
 
     if(ageCheck1 >= randomAge)
     {
