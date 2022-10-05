@@ -10,7 +10,7 @@ using namespace std;
 void ArrayOfChars();
 void ArrayOfInts();
 void Equations();
-void Ranges();
+//void Ranges();
 void ArrayOfCharName();
 void AgeCheck();
 void VerifyEvenNumber();
@@ -26,7 +26,7 @@ int main(int argc, const char * argv[])
     ArrayOfChars();
     ArrayOfInts();
     Equations();
-    Ranges();
+    //Ranges();
     ArrayOfCharName();
     AgeCheck();
     VerifyEvenNumber();
@@ -99,11 +99,11 @@ void Equations()
 }
 
 //Calls Program 1-4
-void Ranges()
+/*void Ranges()
 {
 
 
-}
+}*/
 
 //Calls Program 1-5
 void ArrayOfCharName()
