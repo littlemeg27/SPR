@@ -5,6 +5,7 @@
 //  Created by Brenna Pavlinchak on 9/3/22.
 //
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 void ArrayOfChars();
@@ -47,10 +48,8 @@ void ArrayOfChars()
     cout << "Please enter your Initials \n";
     cin >> userInitials;
     cout << "Please enter your Age \n";
-    cin >> userAge;
 
-    
-    if(!cin)
+    while(!(cin >> userAge))
     {
         cout << "That was no integer! Please enter an integer: ";
         cin.clear();
@@ -70,6 +69,13 @@ void ArrayOfInts()
     for (i = 0; i <= 4; i++)
     {
         cout << "\nPlease enter a Random Number ";
+        
+        while(!(cin >> randomNumbers[i]))
+        {
+            cout << "That was no integer! Please enter an integer: ";
+            cin.clear();
+            cin >> randomNumbers[i];
+        }
         cin >> randomNumbers[i];
     }
 
@@ -169,15 +175,17 @@ void VerifyEvenNumber()
 void EvenlyDivide()
 {
     int number;
+    int randomNumber = rand();
     
     cout << "\n\nEnter a number to see if it is divisible!\n";
     cin >> number;
-
-    for(int i = 1; i <= number; ++i)
+    
+    for(int i = 1; i <= 3; ++i)
     {
-        if(number %i ==0)
+        
+        if(number %randomNumber == 0)
         {
-            cout << " " << i;
+            cout <<" "<< i;
         }
     }
 }
@@ -230,13 +238,13 @@ void GameLevels()
     switch (gameLevel)
     {
         case 1:
-            cout << "3";
+            cout << rand();
         break;
         case 2:
-            cout << "11";
+            cout << (rand()*2);
         break;
         case 3:
-            cout << "25";
+            cout << (rand()*3);
         break;
     }
 }
