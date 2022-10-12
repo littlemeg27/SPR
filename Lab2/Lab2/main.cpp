@@ -9,18 +9,18 @@
 #include <cmath>
 using namespace std;
 
-int TurnOn();
-int TurnOff();
-int Toggle();
-int Negate();
-int CheckNegate();
+int TurnOn(int, int);
+int TurnOff(int, int);
+int Toggle(int, int, int);
+int Negate(int);
+void CheckNegate(int);
 void LeftShift();
 void RightShift();
 
 string toBinary1(int leftShift1, int leftShift2)
 {
     string binary;
-    for (unsigned i = (1 << leftShift2 - 1); i > 0; i = i / 2)
+    for(unsigned i = (1 << leftShift2 - 1); i > 0; i = i / 2)
     {
         binary += (leftShift1 & i) ? "1" : "0";
     }
@@ -31,7 +31,7 @@ string toBinary1(int leftShift1, int leftShift2)
 string toBinary2(int rightShift1, int rightShift2)
 {
     string binary;
-    for (unsigned i = (1 << rightShift2 - 1); i > 0; i = i / 2)
+    for(unsigned i = (1 << rightShift2 - 1); i > 0; i = i / 2)
     {
         binary += (rightShift1 & i) ? "1" : "0";
     }
@@ -41,35 +41,36 @@ string toBinary2(int rightShift1, int rightShift2)
 
 int main(int argc, const char * argv[])
 {
-    TurnOn();
-    TurnOff();
-    Toggle();
-    Negate();
-    CheckNegate();
-    LeftShift();
-    RightShift();
-    
-    //int turnOn1 = 4;
-    //int turnOn2 = 2;
-    //int turnOff1 = 15;
-    //int turnOff2 = 4;
-    
+    int turnOn1 = 4;
+    int turnOn2 = 2;
+    int turnOff1 = 15;
+    int turnOff2 = 4;
     int leftShift1 = 20;
     int rightShift1 = 20;
     int leftShift2 = 32;
     int rightShift2 = 32;
+    int n = rand();
+    int i = 0;
     
-    //unsigned int toggle1 = 50;
-    //unsigned int toggle2 = 2;
-    //unsigned int toggle3 = 5;
+    unsigned int toggle1 = 50;
+    unsigned int toggle2 = 2;
+    unsigned int toggle3 = 5;
     
-    cout << Toggle();
-    cout << TurnOn();
-    cout << TurnOff();
+    TurnOn(turnOn1, turnOn2);
+    TurnOff(turnOff1, turnOff2);
+    Toggle(toggle1, toggle2, toggle3);
+    Negate(i);
+    CheckNegate(n);
+    LeftShift();
+    RightShift();
     
-    CheckNegate();
-    CheckNegate();
-    CheckNegate();
+    cout << Toggle(toggle1, toggle2, toggle3);
+    cout << TurnOn(turnOn1, turnOn2);
+    cout << TurnOff(turnOff1, turnOff2);
+    
+    CheckNegate(n);
+    CheckNegate(n);
+    CheckNegate(n);
     
     cout << "The binary representation of " << leftShift1 << " is " << toBinary1(leftShift1, leftShift2);
     cout << "The binary representation of " << rightShift1 << " is " << toBinary2(rightShift1, rightShift2);
