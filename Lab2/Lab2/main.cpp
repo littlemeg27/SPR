@@ -64,10 +64,10 @@ int main(int argc, const char * argv[])
     LeftShift();
     RightShift();
     
-    cout << Toggle(toggle1, toggle2, toggle3);
     cout << TurnOn(turnOn1, turnOn2);
     cout << TurnOff(turnOff1, turnOff2);
-    
+    cout << Toggle(toggle1, toggle2, toggle3);
+
     CheckNegate(n);
     CheckNegate(n);
     CheckNegate(n);
@@ -82,7 +82,9 @@ int TurnOn(int turnOn1, int turnOn2)
 {
     if (turnOn2 <= 0)
     {
+        cout << "The Bit has been Turned On";
         return turnOn1;
+        
     }
        return (turnOn1 | (1 << (turnOn2 - 1)));
 }
@@ -91,6 +93,7 @@ int TurnOff(int turnOff1, int turnOff2)
 {
     if (turnOff2 <= 0)
     {
+        cout << "The Bit has been Turned Off";
         return turnOff1;
     }
         return (turnOff1 & ~(1 << (turnOff2 - 1)));

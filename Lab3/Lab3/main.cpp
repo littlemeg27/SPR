@@ -14,10 +14,13 @@ using namespace std;
 
 int ArrayOfInts();
 int Pointer();
+void Print(int, int);
 void CreateCars();
-void RepaintCar();
-void Print(int, &int);
-void PrintCarPointer();
+void RepaintCar(Car, Color);
+void PrintCarPointer(Car);
+void StoreCar();
+void ShowCars();
+
 
 enum Color
 {
@@ -39,11 +42,19 @@ struct Car
 
 int main(int argc, const char * argv[])
 {
+    static Car car[3];
+    srand(time(NULL));
+    
     ArrayOfInts();
     Pointer();
+    Print(value, address);
     CreateCars();
-    RepaintCar();
-    PrintCarPointer();
+    RepaintCar(*car, color);
+    PrintCarPointer(*c);
+    StoreCar();
+    ShowCars();
+    
+    void PrintCarPointer();
 
     static Car car[3];
 
@@ -90,10 +101,8 @@ void Print(int value, int* address)
     cout << "The value and address are: " << value << " "<< address << endl;;
 }
 
-void CreateCar()
+void CreateCars()
 {
-    //to store cars info
-
     static Car car[3];
 
     srand(time(NULL));
