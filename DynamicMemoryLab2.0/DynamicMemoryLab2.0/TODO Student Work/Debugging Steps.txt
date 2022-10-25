@@ -1,0 +1,5 @@
+Write your debugging steps and thought process here (This is part of your grade)
+Checked all options for dealing with Memory leaks.
+Got a few things fix but I think I got it down from 700 to 636
+Could not get either Apple Debugging Tool to work.
+Also tried seeing about doing it by hand but that didnt work either. 

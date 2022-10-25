@@ -12,22 +12,10 @@
 #include <string>
 using namespace std;
 
-int ArrayOfInts();
-int Pointer();
-void Print(int, int);
-void CreateCars();
-void RepaintCar(Car, Color);
-void PrintCarPointer(Car);
-void StoreCar();
-void ShowCars();
-
-
 enum Color
 {
     Red,
-    White,
-    Blue,
-    Purple
+    White
 };
 
 struct Car
@@ -35,204 +23,145 @@ struct Car
     char make[32];
     char model[32];
     int year;
-    Color color;
+    Color carColor;
     int mileage;
 };
+
+void print(int val, int* address);
+void repaintCar(Car *car, Color color);
+void printCar(Car c);
+void addMileage(Car *car, int mileage);
+void printCarPointer(Car *c);
 
 
 int main(int argc, const char * argv[])
 {
-    static Car car[3];
-    srand(time(NULL));
+    int array[15];
     
-    ArrayOfInts();
-    Pointer();
-    Print(value, address);
-    CreateCars();
-    RepaintCar(*car, color);
-    PrintCarPointer(*c);
-    StoreCar();
-    ShowCars();
+    for(int i=0;i<15;i++)
+    {
+        printf("Value and Memory address of %d are:%d\t%p\n",i+1,array[i],&array[i]);
+    }
+
+    for(int i=0;i<15;i++)
+    {
+        array[i] = rand()%1000;
+    }
+
+    for(int i=0;i<15;i++)
+    {
+        print(array[i],&array[i]);
+    }
     
-    void PrintCarPointer();
-
     static Car car[3];
 
-    srand(time(NULL));
+        srand(time(NULL));
 
-    return 0;
-}
+        for (int i = 0; i < 3; i++)
+        {
 
-int ArrayOfInts()
-{
-    int randomArray1[15];
+            cout << "\nCars " << (i + 1) << " - ";
+            cout << "\n\tEnter car make : ";
+            cin >> car[i].make;
+            cout << "\tEnter car model : ";
+            cin >> car[i].model;
+            cout << "\tEnter car year : ";
+            cin >> car[i].year;
+            cout << "\t1. Red\n\t2. White";
+            cout << "\n\tEnter car colour : ";
+            int check;
+            cin >> check;
 
-    for(int i = 0; i < 15; i++)
-    {
-        randomArray1[i] = rand() %1000;
-    }
+            if (check == 1)
+            {
+                car[i].carColor = Red;
+            }
+            else
+            {
+                car[i].carColor = White;
+            }
+            car[i].mileage = rand();
+        }
+    
+        int carnum;
 
-    for(int i = 0; i < 15; i++)
-    {
-        printf("Value and Memory address of %d are:%d\t%p\n", i + 1, randomArray1[i], &randomArray1[i]);
-    }
-
-    return 0;
-}
-
-int Pointer()
-{
-    int randomArray2[15];
-
-    for(int i = 0; i < 15; i++)
-    {
-        randomArray2[i] = rand() %1000;
-    }
-
-    for(int i = 0; i < 15; i++)
-    {
-        Print(randomArray2[i], &randomArray2[i]);
-    }
-    return 0;
-}
-
-void Print(int value, int* address)
-{
-    cout << "The value and address are: " << value << " "<< address << endl;;
-}
-
-void CreateCars()
-{
-    static Car car[3];
-
-    srand(time(NULL));
-
-    for (int i = 0; i < 3; i++)
-    {
-        cout << "\nCars " << (i + 1) << " - ";
-        cout << "\n\tEnter car make : ";
-        cin >> car[i].make;
-        cout << "\tEnter car model : ";
-        cin >> car[i].model;
-        cout << "\tEnter car year : ";
-        cin >> car[i].year;
+        cout << "\nEnter car number (1,2 or 3) to repaint : ";
+        cin >> carnum;
         cout << "\t1. Red\n\t2. White";
         cout << "\n\tEnter car colour : ";
         int check;
         cin >> check;
-        
-        if (check == 1)
-        {
-            car[i].color = Red;
-        }
-        else
-        {
-            car[i].color = White;
-        }
-        
-        car[i].mileage = rand();
-    }
-
-    for (int i = 0; i < 3; i++)
-    {
-        string color = "Red";
-        
-        if (car[i].color == 1)
-        {
-            color = "White";
-            cout << "\nCar " << (i + 1) << " - " << car[i].year << " " << color << " " << car[i].make << " " << car[i].model << " with " << car[i].mileage << " miles.";
-        }
-    }
-}
-
-void RepaintCar(Car *car, Color color)
-{
-    car -> color = color;
-}
-
-void PrintCar(Car c)
-{
-    string color = "Red";
-    
-    if (c.color == 1)
-    {
-        color = "White";
-        cout << c.year << " " << color << " " << c.make << " " << c.model << " with " << c.mileage << " miles.";
-    }
-}
-
-void PrintCarPointer(Car *c)
-{
-    string color = "Red";
-    
-    if (c -> color == 1)
-    {
-        color = "White";
-        cout << c -> year << " " << color << " " << c -> make << " " << c -> model << " with " << c -> mileage << " miles.";
-    }
-}
-
-void StoreCar()
-{
-    static Car car[3];
-    srand(time(NULL));
-
-    for (int i = 0; i < 3; i++)
-    {
-        cout << "\nCars " << (i + 1) << " - ";
-        cout << "\n\tEnter car make : ";
-        cin >> car[i].make;
-        cout << "\tEnter car model : ";
-        cin >> car[i].model;
-        cout << "\tEnter car year : ";
-        cin >> car[i].year;
-        cout << "\t1. Red\n\t2. White";
-        cout << "\n\tEnter car colour : ";
-        int check;
-        cin >> check;
-        
-        if (check == 1)
-        {
-            car[i].color = Red;
-        }
-        else
-        {
-            car[i].color = White;
-        }
-        
-        car[i].mileage = rand();
-    }
-}
-
-void ShowCars()
-{
-    static Car car[3];
-    int carNumber;
-    int check;
-    cout << "\nEnter car number (1,2 or 3) to repaint : ";
-    cin >> carNumber;
-    cout << "\t1. Red\n\t2. White";
-    cout << "\n\tEnter car colour : ";
-    cin >> check;
     
         if (check == 1)
         {
-            car[carNumber].color = Red;
+            car[carnum].carColor = Red;
         }
         else
         {
-            car[carNumber].color = White;
+            car[carnum].carColor = White;
         }
 
-    for (int i = 0; i < 3; i++)
-    {
-        cout << "\nCar " << (i + 1) << " - ";
-        PrintCar(car[i]);
-    }
+        for (int i = 0; i < 3; i++)
+        {
+            cout << "\nCar " << (i + 1) << " - ";
+            printCar(car[i]);
+        }
 
-    for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
+        {
+            cout << "\nCar " << (i + 1) << " - ";
+            printCarPointer(&car[i]);
+        }
+
+        cout << "\n\nChanging Mileage-";
+
+        for (int i = 0; i < 3; i++)
+        {
+            addMileage(&car[i], 500);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            cout << "\nCar " << (i + 1) << " - ";
+            printCar(car[i]);
+        }
+
+    return 0;
+}
+
+void print(int value, int* address)
+{
+    cout << "The value and address are: " << value << " " << address << endl;
+}
+
+void repaintCar(Car *car, Color color)
+{
+    car-> carColor = color;
+}
+
+void printCar(Car c)
+{
+    string carColor = "Red";
+
+    if(c.carColor == 1)
     {
-        cout << "\nCar " << (i + 1) << " - ";
-        PrintCarPointer(&car[i]);
+        carColor = "White";
+        cout << c.year << " " << carColor << " " << c.make << " " << c.model << " with " << c.mileage << " miles.";
     }
+}
+
+void printCarPointer(Car *c)
+{
+    string carColor = "Red";
+
+    if(c -> carColor == 1)
+    {
+        carColor = "White";
+        cout << c -> year << " " << carColor << " " << c ->make << " " << c ->model << " with " << c -> mileage << " miles.";
+    }
+}
+
+void addMileage(Car *car, int mileage)
+{
+    car -> mileage = mileage;
 }
